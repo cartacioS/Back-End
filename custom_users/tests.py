@@ -1,3 +1,6 @@
 from django.test import TestCase
+from django.db import IntegrityError
+from .models import User
 
-# Create your tests here.
+class UserModelTestCase(TestCase):
+    pass
