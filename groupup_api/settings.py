@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'custom_users',
+    'user_requests',
 ]
 
 AUTH_USER_MODEL = 'custom_users.User'
