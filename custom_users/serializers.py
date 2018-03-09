@@ -19,3 +19,15 @@ class UserSerializer(serializers.ModelSerializer):
         u.set_password(validated_data.get('password'))
         u.save()
         return u
+
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+            min_length=8,
+            max_length=128,
+            read_only=True
+            )
+
+    class Meta:
+        model = User
+        fields = ('email', 'password')
+        read_only_fields = ('email', 'password')
