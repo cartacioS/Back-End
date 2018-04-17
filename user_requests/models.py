@@ -4,7 +4,7 @@ from custom_users.models import User
 # Create your models here.
 
 class UserRequests(models.Model):
-    groupon_url = models.URLField()
+    groupon_url = models.URLField(default = "groupon.com")
     title = models.TextField()
     poster = models.ForeignKey('custom_users.User', on_delete = models.CASCADE,)
     expiration_date = models.DateTimeField()
