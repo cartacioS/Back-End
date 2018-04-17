@@ -14,7 +14,7 @@ class RequestListView(generics.GenericAPIView):
     def get(self, request):
         requests = self.get_queryset()
         serializer = RequestSerializer(requests, many = True)
-        return Response(serialized.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class RequestCreationView(generics.GenericAPIView):
     serializer_class = RequestSerializer
