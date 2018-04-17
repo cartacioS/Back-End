@@ -21,7 +21,7 @@ class RequestCreationView(generics.GenericAPIView):
     queryset = UserRequests.objects.all()
 
     def post(self, request):
-        serializer = RequestSerializer(data=request.data)
+        serializer = RequestSerializer(data=request.data, context = { 'request' : request })
         serializer.is_valid(raise_exception=True)
         u = serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
