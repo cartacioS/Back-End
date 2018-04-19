@@ -35,7 +35,7 @@ class UserLoginView(generics.GenericAPIView):
         response = {}
         if user is not None:
             response["jwt_token"] = user.token
+            return Response(response, status=status.HTTP_200_OK)
         else:
             response["errors"] = "No such user"
-
-        return Response(response, status=status.HTTP_200_OK)
+            return Response(response, status=status.HTTP_400_BAD_REQUEST)
